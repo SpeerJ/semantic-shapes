@@ -1,0 +1,20 @@
+name: semantic-shapes
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - fastapi
+  - uvicorn
+  - pydantic
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - pip
+  - pip:
+    - python-multipart
+    - httpx
+    - gensim
+    - nltk
+    - pandas
+    - pytest

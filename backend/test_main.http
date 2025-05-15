@@ -1,0 +1,41 @@
+# Test your FastAPI endpoints
+### Get API information
+GET http://localhost:8000/api/info
+Accept: application/json
+
+### Get the vector for a word
+GET http://localhost:8000/api/vector?word=king
+Accept: application/json
+
+### Get similar words
+GET http://localhost:8000/api/similar?word=computer&n=10
+Accept: application/json
+
+### Vector arithmetic
+GET http://localhost:8000/api/arithmetic?expr=queen-woman+man&n=10
+Accept: application/json
+
+### Project words to 2D space using PCA
+GET http://localhost:8000/api/projected?words=king,queen,man,woman,prince,princess,boy,girl&method=pca&dimensions=2
+Accept: application/json
+
+### Project words to 2D space using t-SNE
+GET http://localhost:8000/api/projected?words=king,queen,man,woman,prince,princess,boy,girl&method=tsne&dimensions=2
+Accept: application/json
+
+### Get vocabulary
+GET http://localhost:8000/api/vocab?limit=20
+Accept: application/json
+
+### Get vocabulary starting with a specific prefix
+GET http://localhost:8000/api/vocab?limit=10&starts_with=comp
+Accept: application/json
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
