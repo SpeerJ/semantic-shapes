@@ -14,7 +14,7 @@ dependencies:
   - pip:
     - python-multipart
     - httpx
-    - gensim
     - nltk
+    - fasttext
     - pandas
     - pytest
