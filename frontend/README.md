@@ -1,12 +1,82 @@
-# React + Vite
+# Semantic Shapes Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application for exploring and learning about word2vec embeddings and vector arithmetic. This interactive tool helps users understand how words are represented as high-dimensional vectors and how semantic relationships can be discovered through mathematical operations.
 
-Currently, two official plugins are available:
+## Features
+- **Vector Arithmetic**: Perform mathematical operations on word vectors (e.g., "king - man + woman = queen")
+- **More to come**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js (version 16 or higher)
+- npm package manager
+- Backend API server running (see backend documentation)
+
+### Installation
+
+1. Clone the repository:
+```
+git clone www.github.com/speerj/semantic-shapes cd frontend
+``` 
+
+2. Install dependencies:
+```
+npm install
+``` 
+
+3. Start the development server:
+```
+npm run dev
+``` 
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+### Vector Arithmetic
+
+The most fascinating property of word embeddings is that they capture semantic relationships through linear operations:
+
+- **Analogies**: `A is to B as C is to D` can be computed as `B - A + C ≈ D`
+- **Gender Relations**: `king - man + woman ≈ queen`
+- **Geographic Relations**: `tokyo - japan + france ≈ paris`
+- **Linguistic Relations**: `walking - walk + swim ≈ swimming`
+- **Philosophical Relations**: `animal + culpable ≈ human`
+
+Use the format: `word1 - word2 + word3` or combinations of addition and subtraction.
+## API Integration
+
+The frontend connects to the Semantic Shapes API with the following endpoints:
+
+- `/api/info` - Model metadata (dimensions, vocabulary size)
+- `/api/similar` - Find similar words
+- `/api/arithmetic` - Vector arithmetic operations
+- `/api/projected` - Get 2D/3D coordinates for visualization
+- `/api/vocab` - Browse vocabulary
+- `/api/vector` - Raw embedding vectors
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+### Tech Stack
+
+- **React 19.1.0** - UI framework
+- **Vite 6.3.5** - Build tool and dev server
+- **ESLint** - Code linting
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Word2Vec algorithm by Mikolov et al.
+- Built with modern React and Vite

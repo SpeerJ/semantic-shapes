@@ -1,0 +1,18 @@
+.result-table {
+    color: #333;
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+    border-bottom: 2px solid #ddd;
+    padding: 12px;
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+.table-cell {
+    border-bottom: 1px solid #eee;
+    padding: 10px 12px;
+}

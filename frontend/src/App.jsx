@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './app.css'
+import VectorArithmetic from "./VectorArithmetic.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <div>
+            <header className="header">
+                <h1>Semantic Shapes</h1>
+            </header>
+            <main style={{padding: '20px'}}>
+                <div className="content-container">
+                    <div>
+                        This application demonstrates vector arithmetic on word embeddings.
+                        Inspired by Word2Vec's ability to solve analogies like "king - man + woman = queen",
+                        you can enter similar expressions below to find words closest to the resulting vector.
+                    </div>
+                    <VectorArithmetic/>
+                </div>
+            </main>
+        </div>
+    )
 }
 
 export default App
