@@ -113,7 +113,7 @@ function VectorArithmetic() {
                         </thead>
                         <tbody>
                         {results.map((result, i) => (
-                            <tr key={i} style={i % 2 === 0 ? tableRowEvenStyle : tableRowOddStyle}>
+                            <tr key={i} className={i % 2 === 0 ? 'table-row-even' : 'table-row-odd'}>
                                 <td className="table-cell">{result.word}</td>
                                 <td className="table-cell">{typeof result.similarity === 'number' ? result.similarity.toFixed(5) : String(result.similarity)}</td>
                             </tr>
@@ -125,13 +125,5 @@ function VectorArithmetic() {
         </div>
     )
 }
-
-const tableRowEvenStyle = {
-    backgroundColor: '#f9f9f9'
-};
-
-const tableRowOddStyle = {
-    backgroundColor: '#fff'
-};
 
 export default VectorArithmetic;

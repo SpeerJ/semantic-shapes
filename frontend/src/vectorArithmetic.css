@@ -1,18 +1,46 @@
 .result-table {
-    color: #333;
+    color: var(--table-text-color, #333);
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px var(--table-shadow-color, rgba(0, 0, 0, 0.05));
 }
 
 .table-header {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid var(--table-border-color, #ddd);
     padding: 12px;
-    background-color: #e9ecef;
+    background-color: var(--table-header-bg, #e9ecef);
     font-weight: bold;
+    color: var(--table-header-text-color, #333);
 }
 
 .table-cell {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--table-cell-border-color, #eee);
     padding: 10px 12px;
+    background-color: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --table-text-color: #333;
+        --table-shadow-color: rgba(0, 0, 0, 0.05);
+        --table-border-color: #ddd;
+        --table-header-bg: #e9ecef;
+        --table-header-text-color: #333;
+        --table-cell-border-color: #eee;
+        --table-row-even-bg: #f9f9f9;
+        --table-row-odd-bg: #fff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --table-text-color: rgba(255, 255, 255, 0.87);
+        --table-shadow-color: rgba(255, 255, 255, 0.3);
+        --table-border-color: #444;
+        --table-header-bg: #2a2a2a;
+        --table-header-text-color: rgba(255, 255, 255, 0.87);
+        --table-cell-border-color: #333;
+        --table-row-even-bg: #1e1e1e;
+        --table-row-odd-bg: #242424;
+    }
 }
