@@ -8,6 +8,26 @@ function VectorArithmetic() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    const parseErrorResponse = async (response) => {
+        try {
+            const errorData = await response.json();
+            if (errorData?.detail) {
+                if (Array.isArray(errorData.detail)) {
+                    return errorData.detail.map(err => err.msg || 'Unknown error').join('; ');
+                }
+                return errorData.detail;
+            }
+        } catch {
+            try {
+                const text = await response.text();
+                return `HTTP ${response.status}: ${text}`;
+            } catch {
+                return `HTTP ${response.status} could not read error body.`;
+            }
+        }
+        return `HTTP ${response.status}`;
+    }
+
     const handleSubmit = async () => {
         if (!expression.trim()) {
             setError('Please enter an expression');
@@ -21,20 +41,10 @@ function VectorArithmetic() {
         try {
             const response = await fetch(`${config.apiBaseUrl}/api/arithmetic?expr=${encodeURIComponent(expression)}`);
             if (!response.ok) {
-                let errorMsg = `HTTP error! status: ${response.status}`;
-                try {
-                    const errorData = await response.json();
-                    if (errorData && errorData.detail && Array.isArray(errorData.detail) && errorData.detail.length > 0) {
-                        errorMsg = errorData.detail.map(err => err.msg || 'Unknown error').join('; ');
-                    } else if (errorData && errorData.detail && typeof errorData.detail === 'string') {
-                        errorMsg = errorData.detail;
-                    }
-                } catch (jsonError) {
-                    const textResponse = await response.text().catch(() => 'Could not read error body.');
-                    errorMsg = `JSON error! status: ${response.status}, text: ${textResponse}`;
-                }
+                let errorMsg = await parseErrorResponse(response);
                 throw new Error(errorMsg);
             }
+
             const data = await response.json();
             const words = data.results;
             if (!Array.isArray(words) || (words.length > 0 && (!words[0].word || typeof words[0].similarity === 'undefined'))) {
@@ -108,7 +118,7 @@ function VectorArithmetic() {
                         <thead>
                         <tr>
                             <th className="table-header">Word</th>
-                            <th className="table-header">similarity</th>
+                            <th className="table-header">Similarity</th>
                         </tr>
                         </thead>
                         <tbody>
