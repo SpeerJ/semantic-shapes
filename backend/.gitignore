@@ -44,3 +44,37 @@ logs/
 # Local environment files
 .env
 .env.local
+
+wheels/
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Environments
+.venv
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# OS
+.DS_Store
+Thumbs.db
