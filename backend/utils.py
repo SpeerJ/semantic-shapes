@@ -44,11 +44,11 @@ class WordEmbeddings:
         from gensim.models import Word2Vec
 
         # Sample vocabulary for testing
-        words = ["king", "queen", "man", "woman", "prince", "princess", 
+        words = ["king", "queen", "man", "woman", "prince", "princess",
                  "boy", "girl", "father", "mother", "son", "daughter",
-                 "dog", "cat", "paris", "france", "berlin", "germany", 
+                 "dog", "cat", "paris", "france", "berlin", "germany",
                  "tokyo", "japan", "computer", "keyboard", "mouse"]
-                 
+
         # Create dummy sentences for training
         sentences = []
         for i in range(len(words)):
