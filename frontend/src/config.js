@@ -1,6 +1,6 @@
 const config = {
   apiBaseUrl: import.meta.env.PROD 
-    ? '' // todo: add production url
+    ? 'https://semantic-shapes-api-production.up.railway.app'
     : '',
 }
 
